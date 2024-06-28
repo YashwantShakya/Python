@@ -1,0 +1,49 @@
+# Define a dictionary to store tasks
+tasks = {}
+
+def add_task():
+  task_name = input("Enter task name: ")
+  task_due_date = input("Enter due date (YYYY-MM-DD): ")
+  tasks[task_name] = task_due_date
+  print(f"Task '{task_name}' added!")
+
+def update_task():
+  task_name = input("Enter task name to update: ")
+  task_due_date = input("Enter new due date (YYYY-MM-DD): ")
+  tasks[task_name] = task_due_date
+  print(f"Task '{task_name}' updated!")
+
+def delete_task():
+  task_name = input("Enter task name to delete: ")
+  if task_name in tasks:
+    del tasks[task_name]
+    print(f"Task '{task_name}' deleted!")
+  else:
+    print("Task not found!")
+
+def view_tasks():
+  print("To-Do List:")
+  for task, due_date in tasks.items():
+    print(f"Task: {task}, Due Date: {due_date}")
+
+while True:
+  print("To-Do List Application")
+  print("1. Add Task")
+  print("2. Update Task")
+  print("3. Delete Task")
+  print("4. View Tasks")
+  print("5. Quit")
+  choice = input("Choose an option: ")
+
+  if choice == "1":
+    add_task()
+  elif choice == "2":
+    update_task()
+  elif choice == "3":
+    delete_task()
+  elif choice == "4":
+    view_tasks()
+  elif choice == "5":
+    break
+  else:
+    print("Invalid option. Please try again.")
